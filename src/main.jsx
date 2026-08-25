@@ -1,20 +1,25 @@
-import { Children, StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Home from "./pages/Home.jsx"
-import About from "./pages/About.jsx"
-import Project from "./pages/Project.jsx"
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Home from "./pages/Home.jsx"
+import About from "./pages/About.jsx"
+import Projects from "./pages/Projects.jsx"
+import Experience from './pages/Experience.jsx'
+import Skills from "./pages/Skills.jsx"
+import Contact from "./pages/Contact.jsx"
+import NotFound from "./pages/NotFound.jsx"
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement: <NotFound />, 
     children: [
       {
         path: "/",
@@ -25,8 +30,24 @@ const router = createBrowserRouter([
         element: <About/>
       },
       {
-        path: "/project",
-        element: <Project/>
+        path: "/projects",
+        element: <Projects/>
+      },
+      {
+        path: "/experience",
+        element: <Experience/>
+      },
+      {
+        path: "/skills",
+        element: <Skills/>
+      },
+      {
+        path: "/contact",
+        element: <Contact/>
+      },
+      {
+        path: "*",
+        element: <NotFound />
       }
     ]
   },
